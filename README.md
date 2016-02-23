@@ -1,1 +1,2 @@
-# sunshinemarkdown
+# sunshinemarkdown 2016年2月23日正式开启新的逗比之路
+纯属自娱自乐，开心就好
