@@ -1,6 +1,8 @@
 "Use stricts"
+/*----------------------- electron配置 --------------------------*/
 var app = require('app');
 var BrowserWindow = require('browser-window');
+
 
 var mainWindow = null;
 
@@ -19,5 +21,6 @@ app.on('ready',function(){
 		mainWindow = null;
 	});
 
-	mainWindow.setTitle("我的笔记markdown");
+	mainWindow.setTitle("我的markdown");
 });
+/*----------------------- electron配置 end-----------------------*/
