@@ -4,7 +4,7 @@
   "description": "纯属自娱自乐，开心就好",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/electron ."
   },
   "repository": {
     "type": "git",
@@ -17,8 +17,6 @@
   },
   "homepage": "https://github.com/Zjingwen/sunshinemarkdown#readme",
   "devDependencies": {
-    "electron-prebuilt": "^0.37.2",
-    "vue": "^1.0.18-csp",
-    "vue-router": "^0.7.11"
+    "electron-prebuilt": "^0.37.2"
   }
 }
