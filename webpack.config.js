@@ -20,7 +20,8 @@ module.exports = {
 			},
 			{
                 test : /\.js$/,
-                loader : 'babel-loader'     
+                loader : 'babel-loader',
+                exclude: /node_modules/   
             }
 		]
 	},
@@ -33,11 +34,17 @@ module.exports = {
 			filename: '../../index.html',
 			inject: 'body',
 			hash: true,
-			chunks: ['app'],
+			chunks: ['app','Vue','Wilddog'],
 			minify: {   
 				removeComments: true,
 				collapseWhitespace: false
 			}
-		})
+		}),
+		new webpack.ProvidePlugin({
+            Vue:'vue',
+            Wilddog:'wilddog'
+        }),
+        new webpack.optimize.CommonsChunkPlugin('Vue','../lib/Vue.js'),
+        new webpack.optimize.CommonsChunkPlugin('Wilddog','../lib/Wilddog.js'),
 	]
 }
