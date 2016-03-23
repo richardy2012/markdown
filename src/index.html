@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <title></title>
   </head>
-  <body>
-  你好新世界的大门
+  <body id="app">
+  <h1>写入</h1>
+  <textarea v-model="data" width="100px" height="100px"></textarea>
+  <h1>读出</h1>
+  <p v-text="data"></p>
+  <br>
+  <input type="button" value="保存" v-on:click="copy"></input>
   </body>
 </html>

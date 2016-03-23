@@ -1,3 +1,8 @@
-body{
-	background-color: red;
+textarea{
+	font-size: 16px;
+	width: 500px;
+	height: 200px;
+}
+p{
+	width: 500px;
 }
