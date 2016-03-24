@@ -1,9 +1,7 @@
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlPlugin = require('html-webpack-plugin');
-var less = require("less");
 
-var LessPluginCleanCSS = require('less-plugin-clean-css');
 
 
 module.exports = {
@@ -34,14 +32,10 @@ module.exports = {
             }
 		]
 	},
-	lessLoader: {
-	    lessPlugins: [
-	      new LessPluginCleanCSS({advanced: true})
-	    ]
-	},
+	
 	plugins:[
 		new ExtractTextPlugin("../css/[name].css",{
-			// allChunks:true
+			allChunks:true
 		}),
 		new HtmlPlugin({
 			template: './src/index.html',
