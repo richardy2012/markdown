@@ -1,25 +1,10 @@
-import index from './index.js';
 import '../css/index.css';
-import '../css/admin.less'
-var indexfn = new index();
+import markdown from '../js/markdown.js';
+import my from '../js/my.js'
 
-indexfn.app()
+Vue.component('markdown', markdown)
+Vue.component('my',my);
 
-// Vue.use(require('vue-resource'));
-
-// var ref = new Wilddog("https://doubi.wilddogio.com/");
-
-console.log(sessionStorage.lastname);
-
-var content=new Vue({
-	el: '#app',
-	data: {
-		message: '你好世界!',
-		data: sessionStorage.lastname
-	},
-	methods:{
-		copy:function(){
-			sessionStorage.lastname=this.data;
-		}
-	}
+new Vue({ 
+	el: '#app'
 })
