@@ -8,7 +8,6 @@ Vue.use(require('vue-resource'));
 
 var ref = new Wilddog("https://doubi.wilddogio.com/");
 
-// sessionStorage.lastname="Smith";
 console.log(sessionStorage.lastname);
 
 var content=new Vue({
@@ -19,17 +18,7 @@ var content=new Vue({
 	},
 	methods:{
 		copy:function(){
-			// ref.set({
-			//     "worktile" : {
-			//         "type" : "word",
-			//         "content" : this.data
-			//     }
-			// });
-			// alert("保存成功");
 			sessionStorage.lastname=this.data;
 		}
 	}
 })
-// ref.child("worktile/content").on("value", function(datasnapshot) {
-	
-// });
