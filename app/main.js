@@ -24,6 +24,3 @@ app.on('ready',function(){
 	mainWindow.setTitle("我的markdown");
 });
 /*----------------------- electron配置 end-----------------------*/
-
-
-

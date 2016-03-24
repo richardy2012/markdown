@@ -1,8 +1,1 @@
-textarea{
-	font-size: 16px;
-	width: 500px;
-	height: 200px;
-}
-p{
-	width: 500px;
-}
+textarea{font-size:16px;height:200px}p,textarea{width:500px}textarea{background-color:#f0f}body h1{font-size:12px}

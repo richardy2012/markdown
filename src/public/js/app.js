@@ -1,12 +1,13 @@
 import index from './index.js';
-import '../css/index.css'
+import '../css/index.css';
+import '../css/admin.less'
 var indexfn = new index();
 
 indexfn.app()
 
-Vue.use(require('vue-resource'));
+// Vue.use(require('vue-resource'));
 
-var ref = new Wilddog("https://doubi.wilddogio.com/");
+// var ref = new Wilddog("https://doubi.wilddogio.com/");
 
 console.log(sessionStorage.lastname);
 
