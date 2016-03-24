@@ -10,9 +10,9 @@ module.exports = {
 		'Vue' : ['vue']
 	},
 	output:{
-		path: 'app/public/js',
-		filename: '[name].js',
-		publicPath:'./public/js',
+		path: 'app/public/',
+		filename: 'js/[name].js',
+		publicPath:'public/',
 	},
 	devtool: false,
 	module:{
@@ -26,20 +26,19 @@ module.exports = {
 				loader : ExtractTextPlugin.extract('style', 'css')
 			},
 			{
-                test : /\.js$/,
-                loader : 'babel-loader',
-                exclude: /node_modules/
-            }
+				test : /\.js$/,
+				loader : 'babel-loader',
+				exclude: /node_modules/
+			}
 		]
 	},
-	
 	plugins:[
-		new ExtractTextPlugin("../css/[name].css",{
+		new ExtractTextPlugin("css/[name].css",{
 			allChunks:true
 		}),
 		new HtmlPlugin({
 			template: './src/index.html',
-			filename: '../../index.html',
+			filename: '../index.html',
 			inject: 'body',
 			hash: true,
 			chunks: ['app','Vue'],
@@ -52,7 +51,7 @@ module.exports = {
             Vue:'vue'
             // Wilddog:'wilddog'
         }),
-        new webpack.optimize.CommonsChunkPlugin('Vue','../lib/Vue.js')
+        new webpack.optimize.CommonsChunkPlugin('Vue','lib/Vue.js')
         // new webpack.optimize.CommonsChunkPlugin('Wilddog','../lib/Wilddog.js'),
 	]
 }
