@@ -2,12 +2,11 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlPlugin = require('html-webpack-plugin');
 
-
-
 module.exports = {
 	entry:{
 		'app':'./src/public/js/app.js',
-		'Vue' : ['vue']
+		'Vue':['vue'],
+		'VueRouter':['vue-router']
 	},
 	output:{
 		path: 'app/public/',
@@ -37,25 +36,32 @@ module.exports = {
 		]
 	},
 	plugins:[
+
+		new webpack.ProvidePlugin({
+            Vue:'vue',
+            VueRouter:'vue-router'
+        }),
+
+
+        new webpack.optimize.CommonsChunkPlugin({
+			names: ['VueRouter'],
+            minChunks: Infinity
+        }),
+
 		new ExtractTextPlugin("css/[name].css",{
 			allChunks:true
 		}),
+		
 		new HtmlPlugin({
 			template: './src/index.html',
 			filename: '../index.html',
 			inject: 'body',
 			hash: true,
-			chunks: ['app','Vue'],
+			chunks: ['VueRouter','app'],
 			minify: {   
 				removeComments: true,
 				collapseWhitespace: false
 			}
 		}),
-		new webpack.ProvidePlugin({
-            Vue:'vue'
-            // Wilddog:'wilddog'
-        }),
-        new webpack.optimize.CommonsChunkPlugin('Vue','lib/Vue.js')
-        // new webpack.optimize.CommonsChunkPlugin('Wilddog','../lib/Wilddog.js'),
 	]
 }
