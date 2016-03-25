@@ -9,12 +9,11 @@ router.map({
 	'/':{
 		component: my
 	},
-    '/markdown': {
-        component: markdown
-    },
-    '/my': {
-        component: my
-    }
+	'/markdown': {
+		component: markdown
+	},
+	'/my': {
+		component: my
+	}
 });
-
 router.start(router, '#app');
