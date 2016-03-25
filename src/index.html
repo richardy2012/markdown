@@ -5,7 +5,9 @@
     <title></title>
   </head>
   <body id="app">
-    <markdown></markdown>
-    <my></my>
+    <a v-link="{ path: '/markdown' }">Go to markdown</a>
+    <a v-link="{ path: '/my' }">Go to my</a>
+    <a v-link="{ path: '/' }">Go /</a>
+    <router-view></router-view>
   </body>
 </html>
