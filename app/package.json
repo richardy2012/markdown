@@ -7,7 +7,7 @@
     "test": "electron .",
     "start": "webpack -p",
     "watch": "webpack -w",
-    "swatch":"gulp default",
+    "swatch": "gulp default",
     "package": "npm run start && npm run swatch && asar pack app app.asar"
   },
   "repository": {
