@@ -1,4 +1,5 @@
 import markdownview from '../view/markdown.html'
+
 var markdown = Vue.extend({
 	template: markdownview,
 	route: {
@@ -6,7 +7,7 @@ var markdown = Vue.extend({
 		setTimeout(function () {
 			transition.next();
 		}, 1400)}
-	  }
+	}
 })
 
 export default markdown;

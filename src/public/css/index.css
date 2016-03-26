@@ -1,8 +1,11 @@
 *{margin: 0;padding: 0;list-style: none;}
 
+/** 设定初始宽高 **/
 html,body{
   width: 100%;
   height: 100%;
+  display: flex;
+  background-color: #F8F6F2;
 }
 
 /** 清除内外边距 **/
@@ -29,8 +32,8 @@ small { font-size: 12px; } /* 小于 12px 的中文很难阅读，让 small 正�
 ul, ol { list-style: none; }
 
 /** 重置文本格式元素 **/
-a { text-decoration: none; }
-a:hover { text-decoration: underline; }
+a { text-decoration: none; color:#000;}
+a:hover { text-decoration: none; }
 
 
 /** 重置表单元素 **/
@@ -67,4 +70,3 @@ table { border-collapse: collapse; border-spacing: 0; }
 	font-size:100%;
 	font-style:normal;
 }
-@import "loading.less";
