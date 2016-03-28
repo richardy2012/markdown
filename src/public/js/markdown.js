@@ -1,4 +1,6 @@
-import markdownview from '../view/markdown.html'
+import markdownview from '../view/markdown.html';
+
+console.log(Marked);
 
 var markdown = Vue.extend({
 	template: markdownview,
