@@ -7,8 +7,9 @@
     "test": "electron .",
     "start": "webpack -p",
     "watch": "webpack -w",
+    "webpack" :"webpack",
     "swatch": "gulp default",
-    "package": "npm run start && npm run swatch && asar pack app app.asar"
+    "package": "npm run webpack && npm run swatch && asar pack app app.asar"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "css-loader": "^0.23.1",
     "electron-prebuilt": "^0.37.2",
     "extract-text-webpack-plugin": "^1.0.1",
+    "github-markdown-css": "^2.2.1",
     "gulp": "^3.9.1",
     "gulp-replace": "^0.5.4",
     "html-loader": "^0.4.3",
@@ -34,6 +36,7 @@
     "less": "^2.6.1",
     "less-loader": "^2.2.2",
     "less-plugin-clean-css": "^1.5.1",
+    "marked": "^0.3.5",
     "style-loader": "^0.13.0",
     "vue": "^1.0.18",
     "vue-resource": "^0.7.0",

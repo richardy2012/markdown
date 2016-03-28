@@ -5,13 +5,14 @@ var HtmlPlugin = require('html-webpack-plugin');
 module.exports = {
 	entry:{
 		'app':'./src/public/js/app.js',
-		'Vue':['vue'],
-		'VueRouter':['vue-router']
+		'K':['vue','vue-router'],
+		'M':['marked']
 	},
 	output:{
 		path: 'app/public/',
 		filename: 'js/[name].js',
 		publicPath:'public/',
+		chunkFilename: '[id].chunk.js'
 	},
 	devtool: false,
 	module:{
@@ -39,13 +40,14 @@ module.exports = {
 
 		new webpack.ProvidePlugin({
             Vue:'vue',
-            VueRouter:'vue-router'
+            VueRouter:'vue-router',
+            Marked:'marked'
         }),
 
 
-        new webpack.optimize.CommonsChunkPlugin({
-			names: ['VueRouter'],
-            minChunks: Infinity
+		new webpack.optimize.CommonsChunkPlugin({
+        	names: ['K','M'],
+        	minChunks: Infinity
         }),
 
 		new ExtractTextPlugin("css/[name].css",{
@@ -57,11 +59,19 @@ module.exports = {
 			filename: '../index.html',
 			inject: 'body',
 			hash: true,
-			chunks: ['VueRouter','app'],
+			chunks: ['M','K','app'],
+			chunksSortMode: function chunksSortMode(a,b){
+				const module={
+					M:1,
+					K:0,
+					app:0
+				}
+				return a.names=="app" ? module[a.names]: module[b.names];
+			},
 			minify: {   
 				removeComments: true,
 				collapseWhitespace: false
 			}
-		}),
+		})
 	]
 }
