@@ -11,6 +11,45 @@ const dialog = Electron.dialog;
 
 let mainWindow = null;
 
+let Eventlistener = function(){
+	// console.log('获得焦点');
+	globalShortcut.register('command+c',function(){
+		console.log("复制");
+		mainWindow.copy();
+	});
+
+	globalShortcut.register('option+command+i',function(){
+		mainWindow.toggleDevTools();
+	});
+	
+	globalShortcut.register('command+a',function(){
+		console.log("全选");
+		mainWindow.selectAll();
+	});
+
+	globalShortcut.register('command+v',function(){
+		console.log("粘贴");
+		mainWindow.paste();
+	});
+
+	globalShortcut.register('command+x',function(){
+		console.log("剪除");
+		mainWindow.cut();
+	});
+
+	globalShortcut.register('command+option+o',function(){
+		dialog.showOpenDialog({
+			options:{
+				properties:['openFile', 'openDirectory']
+			}
+		})
+		// dialog.showOpenDialog(function (fileNames) {
+		// 	console.log(fileNames)
+		// });
+	})
+}
+
+
 app.on('window-all-closed',function(){
 	if(process.plathfrom != 'darwin'){
 		app.quit();
@@ -49,47 +88,16 @@ app.on('ready',function(){
 	mainWindow.on('closed',function(){
 		mainWindow = null;
 	});
+	
+	Eventlistener()
 
 	mainWindow.setTitle("我的markdown");
 });
 
+
+
 app.on('browser-window-focus',function(){
-	// console.log('获得焦点');
-	globalShortcut.register('command+c',function(){
-		// console.log("复制");
-		mainWindow.copy();
-	});
-
-	globalShortcut.register('option+command+i',function(){
-		mainWindow.toggleDevTools();
-	});
-	
-	globalShortcut.register('command+a',function(){
-		// console.log("全选");
-		mainWindow.selectAll();
-	});
-
-	globalShortcut.register('command+v',function(){
-		// console.log("粘贴");
-		mainWindow.paste();
-	});
-
-	globalShortcut.register('command+x',function(){
-		// console.log("剪除");
-		mainWindow.cut();
-	});
-
-	globalShortcut.register('command+option+o',function(){
-		dialog.showOpenDialog({
-			options:{
-				properties:['openFile', 'openDirectory']
-			}
-		})
-		// dialog.showOpenDialog(function (fileNames) {
-		// 	console.log(fileNames)
-		// });
-	})
+	Eventlistener();
 });
-
 
 /*----------------------- electron配置 end-----------------------*/
