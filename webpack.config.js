@@ -18,9 +18,9 @@ module.exports = {
 	module:{
 		'loaders':[
 			{
-            	test:/\.less$/,
-				loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader") 
-            },
+				test:/\.less$/,
+				loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
+			},
 			{
 				test : /\.css$/,
 				loader : ExtractTextPlugin.extract('style', 'css')
@@ -39,21 +39,21 @@ module.exports = {
 	plugins:[
 
 		new webpack.ProvidePlugin({
-            Vue:'vue',
-            VueRouter:'vue-router',
-            Marked:'marked'
-        }),
+			Vue:'vue',
+			VueRouter:'vue-router',
+			Marked:'marked'
+		}),
 
 
 		new webpack.optimize.CommonsChunkPlugin({
-        	names: ['K','M'],
-        	minChunks: Infinity
-        }),
+			names: ['K','M'],
+			minChunks: Infinity
+		}),
 
 		new ExtractTextPlugin("css/[name].css",{
 			allChunks:true
 		}),
-		
+
 		new HtmlPlugin({
 			template: './src/index.html',
 			filename: '../index.html',
@@ -68,7 +68,7 @@ module.exports = {
 				}
 				return a.names=="app" ? module[a.names]: module[b.names];
 			},
-			minify: {   
+			minify: {
 				removeComments: true,
 				collapseWhitespace: false
 			}
